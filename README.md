@@ -27,6 +27,7 @@ and use it in vite.config.ts
 <li>@testing-library/user-event - used e.g. for userEvent.click(buttonElem)</li>
 <li>@testing-library/jest-dom - used for matchers</li>
 <li>jsdom - used to emulated the DOM</li>
+<li>@types/testing-library__jest-dom - matchers types</li>
 </ul>
 
 
