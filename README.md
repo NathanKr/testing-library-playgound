@@ -8,15 +8,29 @@ Simple usage of testing library
 <li>It is easy to wait for element in the dom using testing library via await findByText and it is using MutationObaserver internally, check <a href='https://www.youtube.com/watch?v=kVS78Ztq9RY'>here</a>. In jsdom you need to do it yourself via MutationObserver which is not easy or use sleep which is time consuming</li>
 </ul>
 
-<h2>important packages for testing</h2>
+<h2>Setup</h2>
+<h3>setup.ts</h3>
+add file setup.ts
+
+```
+import { expect } from 'vitest';
+import matchers from '@testing-library/jest-dom/matchers';
+
+// extends Vitest's expect method with methods from testing-library
+expect.extend(matchers);
+```
+and use it in vite.config.ts
+
+<h3>important packages for testing</h3>
 <ul>
 <li>@testing-library/dom - used e.g. for getQueriesForElement</li>
 <li>@testing-library/user-event - used e.g. for userEvent.click(buttonElem)</li>
+<li>@testing-library/jest-dom - used for matchers</li>
 <li>jsdom - used to emulated the DOM</li>
 </ul>
 
 
-<h2>open issues</h2>
+<h2>points of interest</h2>
 <ul>
-<li>I was not able to use toBeInTheDocument from @testing-library/jest-dom. I can do without but it is more readable than toBeTruthy </li>
+<li>you can access node by role in testing-library using e.g. getByRole. Role is defined <a href='https://www.w3.org/TR/wai-aria-1.2/#roles'>here</a></li>
 </ul>
