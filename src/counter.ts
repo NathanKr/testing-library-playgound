@@ -1,9 +1,16 @@
-export function setupCounter(element: HTMLButtonElement) {
-  let counter = 0
+export function setupCounter(element: HTMLButtonElement, timoutMs?: number) {
+  let counter = 0;
   const setCounter = (count: number) => {
-    counter = count
-    element.innerHTML = `count is ${counter}`
+    counter = count;
+    element.innerHTML = timoutMs
+      ? `count with delay is ${counter}`
+      : `count is ${counter}`;
+  };
+  const clickHandlerEngine = () => setCounter(counter + 1);
+  let clickHandler = clickHandlerEngine;
+  if (timoutMs) {
+    clickHandler = () => setTimeout(clickHandlerEngine, timoutMs);
   }
-  element.addEventListener('click', () => setCounter(counter + 1))
-  setCounter(0)
+  element.addEventListener("click", clickHandler);
+  setCounter(0);
 }

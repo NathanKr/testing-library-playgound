@@ -30,6 +30,13 @@ and use it in vite.config.ts
 <li>@types/testing-library__jest-dom - matchers types</li>
 </ul>
 
+<h2>important API</h2>
+<ul>
+<li>getBy - use when the element appear on the dom immediately</li>
+<li>findBy - use when the element appear on the dom but not immediately (but can be used also instead of waitFor)</li>
+<li>use when you need to wait any period of time for expectation to fulfil . timeout and interval can be used here
+</li>
+</ul>
 
 <h2>points of interest</h2>
 <ul>
