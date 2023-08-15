@@ -18,6 +18,7 @@ export function createDom(){
       <p class="read-the-docs">
         Click on the Vite and TypeScript logos to learn more
       </p>
+      <output>This is output element</output>
     </div>
   `
   }

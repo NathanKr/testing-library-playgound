@@ -2,6 +2,7 @@ import { beforeEach, expect, test } from "vitest";
 import { createDom, registerHandlers } from "../src/ui-utils";
 import {
   getAllByRole,
+  getByRole,
   getByText,
   getQueriesForElement,
 } from "@testing-library/dom";
@@ -30,3 +31,10 @@ test("click on button count is 0 -> count is 1", async () => {
   const buttonWithNewText = await findByText("count is 1");
   expect(buttonWithNewText).toBeInTheDocument();
 });
+
+
+test('output element is of type status',()=>{
+  const elem = getByRole(document.body,'status');
+  expect(elem).toBeInTheDocument()
+  expect(elem.textContent).toBe('This is output element')
+})
